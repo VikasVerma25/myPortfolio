@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="{{ url_for('static',filename='main.css') }}">
+  <title>My Portfolio</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- Bootstrap CSS -->
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.3.1/superhero/bootstrap.min.css"> -->
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css" />
+  <link rel="stylesheet" href="{{ url_for('static',filename='cert.css') }}">
+</head>
+
+<div class="header" id="myHeader">
+  <div class="header-main">
+    <a class="nav" id="Home" href="Home.html">Home</a>
+    <a class="nav" id="Certificates" href="Certificates.html">Certificates</a>
+    <a class="nav" id="Projects" href="Projects.html">Projects</a>
+    <a class="nav" id="Comment" href="Comment.html">Comment</a>
+
+    <a class="icon" style="margin-left: 5vw;" href="https://www.linkedin.com/in/vikas-verma-4a02b51a2/"
+      target="_blank"><img src="{{ url_for('static',filename='img/linkedIn-icon.jpg') }}" /></a>
+    <a class="icon" href="https://github.com/VikasVerma25" target="_blank"><img
+        src="{{ url_for('static',filename='img/github-icon.jpg') }}" /></a>
+    <a class="icon" href="https://vikasverma250999.medium.com/" target="_blank"><img
+        src="{{ url_for('static',filename='img/medium-icon.png') }}" /></a>
+    <a class="icon" href="https://github.com/VikasVerma25/myPortfolio" target="_blank"><img
+          src="https://x0n4d0.gallerycdn.vsassets.io/extensions/x0n4d0/vscode-snippets/1.0.7/1610239936666/Microsoft.VisualStudio.Services.Icons.Default" /></a>
+  </div>
+</div>
+
+<div class="container">
+  <div class="slider-wrapper" id="slider">
+    <ul class="slider-img">
+      <li>
+        <img src="{{ url_for('static',filename='img/1.jpg') }}" />
+      </li>
+      <li>
+        <img src="{{ url_for('static',filename='img/2.jpg') }}" />
+      </li>
+      <li>
+        <img src="{{ url_for('static',filename='img/3.jpg') }}" />
+      </li>
+      <li>
+        <img src="{{ url_for('static',filename='img/4.jpg') }}" />
+      </li>
+      <li>
+        <img src="{{ url_for('static',filename='img/5.jpg') }}" />
+      </li>
+      <li>
+        <img src="{{ url_for('static',filename='img/6.jpg') }}" />
+      </li>
+      <li>
+        <img src="{{ url_for('static',filename='img/7.jpg') }}" />
+      </li>
+      <li>
+        <img src="{{ url_for('static',filename='img/8.jpg') }}" />
+      </li>
+      <li>
+        <img src="{{ url_for('static',filename='img/9.jpg') }}" />
+      </li>
+      <li>
+        <img src="{{ url_for('static',filename='img/10.jpg') }}" />
+      </li>
+      <li>
+        <img src="{{ url_for('static',filename='img/11.jpg') }}" />
+      </li>
+      <li>
+        <img src="{{ url_for('static',filename='img/12.jpg') }}" />
+      </li>
+      <li>
+        <img src="{{ url_for('static',filename='img/13.jpg') }}" />
+      </li>
+      <li>
+        <img src="{{ url_for('static',filename='img/14.jpg') }}" />
+      </li>
+      <li>
+        <img src="{{ url_for('static',filename='img/15.jpg') }}" />
+      </li>
+
+    </ul>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+  // Determine the total amount of images in the carousel.
+  let sliderCount = $("#slider").find(".slider-img li img").length;
+  // Load images into the carousel
+  let sliderImg = $("#slider").find(".slider-img");
+  // Define the navigation arrows and pagination bullets.
+  let sliderArrow = `<ul class="slider-arrow"><li class="arrow-left" role="button"><i class="fas fa-chevron-left"></i></li><li class="arrow-right" role="button"><i class="fas fa-chevron-right"></i></li></ul>`;
+  let sliderDotLi = "";
+  for (let i = 0; i < sliderCount; i++) {
+    sliderDotLi += `<li><i class="fas fa-circle"></i></li>`;
+  }
+  let sliderDot = `<ul class="slider-dot">${sliderDotLi}</ul>`;
+  $("#slider").append(sliderArrow + sliderDot);
+
+  let activeDefaultCount = $(".slider-dot li.active").length;
+  if (activeDefaultCount != 1) {
+    $(".slider-dot li")
+      .removeClass()
+      .eq(0)
+      .addClass("active");
+  }
+  let sliderIndex = $(".slider-dot li.active").index();
+  sliderImg.css("left", -sliderIndex * 100 + "%");
+
+  // switch between images
+  function sliderPos() {
+    sliderImg.css("left", -sliderIndex * 100 + "%");
+    $(".slider-dot li")
+      .removeClass()
+      .eq(sliderIndex)
+      .addClass("active");
+  }
+
+  $(".arrow-right").click(function () {
+    sliderIndex >= sliderCount - 1 ? (sliderIndex = 0) : sliderIndex++;
+    sliderPos();
+  });
+
+  $(".arrow-left").click(function () {
+    sliderIndex <= 0 ? (sliderIndex = sliderCount - 1) : sliderIndex--;
+    sliderPos();
+  });
+
+  $(".slider-dot li").click(function () {
+    sliderIndex = $(this).index();
+    sliderPos();
+  });
+
+  let goSlider = setInterval(() => {
+    $(".arrow-right").click();
+  }, 3000);
+
+  $("#slider").on({
+    mouseenter: () => {
+      clearInterval(goSlider);
+    },
+    mouseleave: () => {
+      goSlider = setInterval(() => {
+        $(".arrow-right").click();
+      }, 3000);
+    }
+  });
+</script>
+
+<script src="{{ url_for('static',filename='stickyheader.js') }}"></script>
+
+</body>
+
+</html>

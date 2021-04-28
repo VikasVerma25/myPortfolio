@@ -1,0 +1,110 @@
+<html>
+
+<head>
+    <title>My Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static',filename='main.css') }}">
+    <style>
+        form {
+            text-align: center;
+            width: 50%;
+            margin: 0 auto;
+        }
+
+        input,
+        textarea {
+            display: block;
+            width: 100%;
+            border: 0;
+            padding: 10px 5px;
+            background: white no-repeat;
+            background-image: linear-gradient(to bottom, rgb(7, 80, 153), rgb(7, 80, 153)), linear-gradient(to bottom, silver, silver);
+            background-size: 0 2px, 100% 1px;
+            background-position: 50% 100%, 50% 100%;
+            box-shadow: 0 1px 4px 2px rgba(0, 0, 0, 0.2);
+            border-radius: 0.3vw;
+            resize: inherit;
+            transition: background-size 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1vw;
+        }
+
+        input:focus,
+        textarea:focus {
+            background-size: 100% 2px, 100% 1px;
+            outline: none;
+        }
+
+        #myIframe {
+            width: 50%;
+            margin-top: 5%;
+            border: none;
+        }
+    </style>
+    <script>
+        function currentTime() {
+            var currentdate = new Date();
+            var month = new Array();
+            month[0] = "January";
+            month[1] = "February";
+            month[2] = "March";
+            month[3] = "April";
+            month[4] = "May";
+            month[5] = "June";
+            month[6] = "July";
+            month[7] = "August";
+            month[8] = "September";
+            month[9] = "October";
+            month[10] = "November";
+            month[11] = "December";
+            var datetime = currentdate.getDate() + ""
+                + (month[currentdate.getMonth()]) + ""
+                + currentdate.getFullYear() + " @ "
+                + currentdate.getHours() + "h-"
+                + currentdate.getMinutes() + "m-"
+                + currentdate.getSeconds() + "s";
+            document.getElementById("comment_post_ID").value = datetime;
+        }
+    </script>
+</head>
+
+<body>
+    <div class="header" id="myHeader">
+        <div class="header-main">
+            <a class="nav" id="Home" href="Home.html">Home</a>
+            <a class="nav" id="Certificates" href="Certificates.html">Certificates</a>
+            <a class="nav" id="Projects" href="Projects.html">Projects</a>
+            <a class="nav" id="Comment" href="Comment.html">Comment</a>
+
+            <a class="icon" style="margin-left: 5vw;" href="https://www.linkedin.com/in/vikas-verma-4a02b51a2/"
+                target="_blank"><img src="{{ url_for('static',filename='img/linkedIn-icon.jpg') }}" /></a>
+            <a class="icon" href="https://github.com/VikasVerma25" target="_blank"><img
+                    src="{{ url_for('static',filename='img/github-icon.jpg') }}" /></a>
+            <a class="icon" href="https://vikasverma250999.medium.com/" target="_blank"><img
+                    src="{{ url_for('static',filename='img/medium-icon.png') }}" /></a>
+            <a class="icon" href="https://github.com/VikasVerma25/myPortfolio" target="_blank"><img
+          src="https://x0n4d0.gallerycdn.vsassets.io/extensions/x0n4d0/vscode-snippets/1.0.7/1610239936666/Microsoft.VisualStudio.Services.Icons.Default" /></a>
+        </div>
+    </div>
+
+    <div class="content">
+        <form action="mydb" method="post" id="commentform" target="hiddenFrame" onsubmit="currentTime()">
+            <h3 style="margin-top: 10%;">Leave a Comment</h3>
+            <input placeholder="Name" name="name" type="text" required>
+            <textarea placeholder="Comment" name="comment" required></textarea>
+            <input type="hidden" name="time" id="comment_post_ID" />
+            <input style="width: 20%; font-size: 1vw;" name="submit" type="submit" value="Submit comment" />
+        </form>
+        <center><iframe name="hiddenFrame" id="myIframe" src="getdata"></iframe></center>
+    </div>
+    <script>
+        var iframe = document.getElementById("myIframe");
+        // Adjusting the iframe height onload event
+        iframe.onload = function () {
+            iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+        }
+    </script>
+    <script src="{{ url_for('static',filename='stickyheader.js') }}"></script>
+</body>
+
+</html>

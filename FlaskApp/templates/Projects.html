@@ -1,0 +1,190 @@
+<html>
+
+<head>
+    <title>My Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static',filename='main.css') }}">
+    <style>
+        .myprojects {
+            margin: 5% auto 0% auto;
+            text-align: center;
+            height: 20vw;
+            width: 90vw;
+        }
+
+        .links {
+            display: inline-block;
+            height: 100%;
+            width: 28vw;
+            position: relative;
+            box-shadow: 0 1px 4px 2px rgba(0, 0, 0, 0.2);
+            border-radius: 0.5vw;
+            overflow: hidden;
+        }
+
+        .links .pimg {
+            margin: auto;
+            height: 80%;
+            width: 85%;
+            border-radius: 0.5vw;
+        }
+
+        .links text {
+            bottom: 0;
+            left: 0;
+            right: 0;
+            position: absolute;
+            font-size: 1vw;
+            color: rgb(88, 133, 179);
+            font-weight: bold;
+        }
+
+        .links:hover .pimg {
+            height: 85%;
+            width: 90%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header" id="myHeader">
+        <div class="header-main">
+            <a class="nav" id="Home" href="Home.html">Home</a>
+            <a class="nav" id="Certificates" href="Certificates.html">Certificates</a>
+            <a class="nav" id="Projects" href="Projects.html">Projects</a>
+            <a class="nav" id="Comment" href="Comment.html">Comment</a>
+
+            <a class="icon" style="margin-left: 5vw;" href="https://www.linkedin.com/in/vikas-verma-4a02b51a2/"
+                target="_blank"><img src="{{ url_for('static',filename='img/linkedIn-icon.jpg') }}" /></a>
+            <a class="icon" href="https://github.com/VikasVerma25" target="_blank"><img
+                    src="{{ url_for('static',filename='img/github-icon.jpg') }}" /></a>
+            <a class="icon" href="https://vikasverma250999.medium.com/" target="_blank"><img
+                    src="{{ url_for('static',filename='img/medium-icon.png') }}" /></a>
+            <a class="icon" href="https://github.com/VikasVerma25/myPortfolio" target="_blank"><img
+          src="https://x0n4d0.gallerycdn.vsassets.io/extensions/x0n4d0/vscode-snippets/1.0.7/1610239936666/Microsoft.VisualStudio.Services.Icons.Default" /></a>
+        </div>
+    </div>
+    <div class="content">
+        <div class="myprojects">
+            <div class="links">
+                <a href="https://www.linkedin.com/pulse/machine-learning-devops-vikas-verma/">
+                    <img class="pimg"
+                        src="https://media-exp1.licdn.com/dms/image/C5612AQEhcvwlevFGAw/article-cover_image-shrink_423_752/0/1590331002195?e=1624492800&v=beta&t=pqzLG6BaRZxmr4fgM2nI2KNRSkMV9wpEsgeeINvZIRo" />
+                    <text>Machine Learning + DevOps</text>
+                </a>
+            </div>
+            <div class="links">
+                <a href="https://www.linkedin.com/pulse/continuous-delivery-dynamic-job-distribution-vikas-verma/">
+                    <img class="pimg"
+                        src="https://media-exp1.licdn.com/dms/image/C5612AQFDgt2VpR2c0A/article-cover_image-shrink_423_752/0/1591156624077?e=1624492800&v=beta&t=DriTaCsGJ0pmB7IoupS1QJC4jYLBRV_OHX2pDBlffqQ" />
+                </a>
+                <text>Continuous delivery with Dynamic Job Distribution</text>
+            </div>
+            <div class="links">
+                <a
+                    href="https://www.linkedin.com/pulse/terraform-deployment-complete-automation-using-jenkins-vikas-verma/">
+                    <img class="pimg"
+                        src="https://media-exp1.licdn.com/dms/image/C5612AQGMkk3lyR9Kqg/article-cover_image-shrink_600_2000/0/1592196612253?e=1624492800&v=beta&t=6ROQJYdzPSoaTwT79HPT92hl_roYHjBJrQez1xSo3XE" />
+                </a>
+                <text>Terraform Deployment - Automation using Jenkins</text>
+            </div>
+        </div>
+
+        <div class="myprojects">
+            <div class="links">
+                <a href="https://www.linkedin.com/pulse/elastic-kubernetes-service-joomla-mysql-vikas-verma/">
+                    <img class="pimg"
+                        src="https://media-exp1.licdn.com/dms/image/C4D12AQF7MKjVPUx4og/article-cover_image-shrink_423_752/0/1594586601188?e=1624492800&v=beta&t=Sa6MbvV9Hm8k24aNIgB9FeFXK_qjrLUdVJXcYLTThso" />
+                    <text>Multi-tier Architecture on AWS EKS</text>
+                </a>
+            </div>
+            <div class="links">
+                <a
+                    href="https://medium.com/swlh/hosting-wordpress-on-gcp-k8s-cluster-with-mysql-database-on-aws-using-terraform-f43492868d3d?source=friends_link&sk=33c037eaa4909c896bbd27f530a8508c">
+                    <img class="pimg" src="https://miro.medium.com/max/836/1*kp9VnejA4vUhrBsPzY1DNg.png" />
+                </a>
+                <text>Multi-tier Architecture on Multi Cloud</text>
+            </div>
+            <div class="links">
+                <a
+                    href="https://vikasverma250999.medium.com/creating-ansible-roles-to-configure-haproxy-load-balancer-on-aws-instances-ac59a05646c7">
+                    <img class="pimg" src="https://miro.medium.com/max/875/1*FhRijlCQ7LuDTXRnqZG8Ng.png" />
+                </a>
+                <text>Configure HAProxy Load Balancer on AWS using Ansible</text>
+            </div>
+        </div>
+
+        <div class="myprojects">
+            <div class="links">
+                <a
+                    href="https://vikasverma250999.medium.com/configure-web-server-in-aws-ec2-instance-ansible-dynamic-inventory-394287356b00">
+                    <img class="pimg" src="https://miro.medium.com/max/769/1*F48hOzb3zwxl17zA6seoww.png" />
+                    <text>Configure Web Server in AWS EC2 instance — Ansible dynamic inventory</text>
+                </a>
+            </div>
+            <div class="links">
+                <a
+                    href="https://levelup.gitconnected.com/lvm-with-hadoop-63111412fda2?source=friends_link&sk=49d038663f802f1e49594995b79eb140">
+                    <img class="pimg" src="https://miro.medium.com/max/875/1*7GDT1E61CG7xtJWUZt4kFg.png" />
+                </a>
+                <text>LVM with Hadoop</text>
+            </div>
+            <div class="links">
+                <a href="https://www.linkedin.com/pulse/deployment-automation-docker-jenkins-git-github-vikas-verma/">
+                    <img class="pimg"
+                        src="https://media-exp1.licdn.com/dms/image/C5612AQE9wLwX5ztgGg/article-cover_image-shrink_423_752/0/1592676218246?e=1624492800&v=beta&t=Uid3BhHDy2b18xNw6EJrG9PlK6NLmdjcsgDZgoGPuTQ" />
+                </a>
+                <text>Deployment Automation with docker, Jenkins, Git and GitHub</text>
+            </div>
+        </div>
+
+        <div class="myprojects" style="margin-bottom: 5%;">
+            <div class="links">
+                <a
+                    href="https://vikasverma250999.medium.com/high-availability-architecture-with-cloudfront-aws-cli-752ac8728eea">
+                    <img class="pimg" src="https://miro.medium.com/max/875/1*aJoB1tkcF65SDbyRihLl6Q.png" />
+                    <text>High Availability Architecture with CloudFront — AWS CLI</text>
+                </a>
+            </div>
+            <div class="links">
+                <a href="https://www.linkedin.com/pulse/damaged-road-detection-mask-r-cnn-supervisely-vikas-verma/">
+                    <img class="pimg"
+                        src="https://media-exp1.licdn.com/dms/image/C4D12AQFCqZHj684eeA/article-cover_image-shrink_720_1280/0/1595149120057?e=1624492800&v=beta&t=yh4w5OfkDZoUYb3LYDTXrPMoWCqAAc4Qag3l-TD_UcE" />
+                </a>
+                <text>Damaged Road detection : Mask R-CNN on Supervisely</text>
+            </div>
+            <div class="links">
+                <a href="https://github.com/VikasVerma25/flutter_task">
+                    <img class="pimg"
+                        src="https://raw.githubusercontent.com/VikasVerma25/flutter_task/master/ss/flutterT1.jpg" />
+                </a>
+                <text>Flutter App to play audio and video using network and assets</text>
+            </div>
+        </div>
+
+        <!-- <div class="myprojects" style="margin-top: 5%;">
+                <div class="links">
+                    <a href="">
+                    <img class="pimg" src="" />
+                    <text>Hello hiii</text>
+                    </a>                    
+                </div>                
+                <div class="links">
+                    <a href="">
+                    <img class="pimg" src="" />
+                    </a>
+                    <text>Hello hiii</text>
+                </div>
+                <div class="links">
+                    <a href="">
+                    <img class="pimg" src="" />
+                    </a>
+                    <text>Hello hiii</text>
+                </div>
+            </div> -->
+    </div>
+
+    <script src="{{ url_for('static',filename='stickyheader.js') }}"></script>
+</body>
+
+</html>
