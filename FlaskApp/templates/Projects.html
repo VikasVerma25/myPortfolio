@@ -1,9 +1,12 @@
+<!DOCTYPE html>
 <html>
 
 <head>
-    <title>My Portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Portfolio</title>
     <link rel="stylesheet" href="{{ url_for('static',filename='main.css') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static',filename='img/favicon-32x32.png') }}">
+
     <style>
         .myprojects {
             margin: 5% auto 0% auto;
@@ -18,8 +21,8 @@
             width: 28vw;
             position: relative;
             box-shadow: 0 1px 4px 2px rgba(0, 0, 0, 0.2);
-            border-radius: 0.5vw;
             overflow: hidden;
+            background-color: white
         }
 
         .links .pimg {
@@ -34,7 +37,7 @@
             left: 0;
             right: 0;
             position: absolute;
-            font-size: 1vw;
+            font-size: 15px;
             color: rgb(88, 133, 179);
             font-weight: bold;
         }
@@ -43,7 +46,47 @@
             height: 85%;
             width: 90%;
         }
+
+        #project-head {
+            display: none;
+            font-size: 15px;
+            background-color: rgb(76, 118, 161);
+            color: white;
+            height: 25px;
+            font-weight: bold;
+            padding: 5px;
+        }
+
+        @media screen and (max-width: 800px) {
+            #project-head {
+                display: block;
+                margin-bottom: 20px;
+                text-align: center;
+            }
+            .links {
+                display: block;
+                height: 33%;
+                width: 100%;
+                margin-bottom: 5px;
+                box-shadow: 0 2px 2px 1px rgba(0, 0, 0, 0.2);
+
+            }
+            .myprojects {
+                width: 70%;
+                height: 80%;
+                margin: 20px auto 80px auto;
+            }
+            .links text {
+            font-size: 10px;
+            color: rgb(88, 133, 179);
+            font-weight: bold;
+            }
+            #project-end {
+                margin-bottom: 70px;
+            }
+        }
     </style>
+
 </head>
 
 <body>
@@ -54,39 +97,46 @@
             <a class="nav" id="Projects" href="Projects.html">Projects</a>
             <a class="nav" id="Comment" href="Comment.html">Comment</a>
 
-            <a class="icon" style="margin-left: 5vw;" href="https://www.linkedin.com/in/vikas-verma-4a02b51a2/"
+            <a class="icon" id="linkedIn-icon" href="https://www.linkedin.com/in/vikas-verma-4a02b51a2/"
                 target="_blank"><img src="{{ url_for('static',filename='img/linkedIn-icon.jpg') }}" /></a>
             <a class="icon" href="https://github.com/VikasVerma25" target="_blank"><img
                     src="{{ url_for('static',filename='img/github-icon.jpg') }}" /></a>
             <a class="icon" href="https://vikasverma250999.medium.com/" target="_blank"><img
                     src="{{ url_for('static',filename='img/medium-icon.png') }}" /></a>
             <a class="icon" href="https://github.com/VikasVerma25/myPortfolio" target="_blank"><img
-          src="https://x0n4d0.gallerycdn.vsassets.io/extensions/x0n4d0/vscode-snippets/1.0.7/1610239936666/Microsoft.VisualStudio.Services.Icons.Default" /></a>
+                    src="https://x0n4d0.gallerycdn.vsassets.io/extensions/x0n4d0/vscode-snippets/1.0.7/1610239936666/Microsoft.VisualStudio.Services.Icons.Default" /></a>
+        </div>
+        <div class="menu">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
         </div>
     </div>
-    <div class="content">
+
+    <div class="content" onclick="slideup()" onscroll="slideup()">
+        <div id="project-head">Projects</div>
         <div class="myprojects">
             <div class="links">
                 <a href="https://www.linkedin.com/pulse/machine-learning-devops-vikas-verma/">
                     <img class="pimg"
-                        src="https://media-exp1.licdn.com/dms/image/C5612AQEhcvwlevFGAw/article-cover_image-shrink_423_752/0/1590331002195?e=1624492800&v=beta&t=pqzLG6BaRZxmr4fgM2nI2KNRSkMV9wpEsgeeINvZIRo" />
+                        src="{{ url_for('static',filename='img/mlops.png') }}" />
                     <text>Machine Learning + DevOps</text>
                 </a>
             </div>
             <div class="links">
                 <a href="https://www.linkedin.com/pulse/continuous-delivery-dynamic-job-distribution-vikas-verma/">
                     <img class="pimg"
-                        src="https://media-exp1.licdn.com/dms/image/C5612AQFDgt2VpR2c0A/article-cover_image-shrink_423_752/0/1591156624077?e=1624492800&v=beta&t=DriTaCsGJ0pmB7IoupS1QJC4jYLBRV_OHX2pDBlffqQ" />
-                </a>
-                <text>Continuous delivery with Dynamic Job Distribution</text>
+                        src="{{ url_for('static',filename='img/cd.png') }}" />
+                    <text>Continuous delivery with Dynamic Job Distribution</text>
+                </a>                
             </div>
             <div class="links">
                 <a
                     href="https://www.linkedin.com/pulse/terraform-deployment-complete-automation-using-jenkins-vikas-verma/">
                     <img class="pimg"
-                        src="https://media-exp1.licdn.com/dms/image/C5612AQGMkk3lyR9Kqg/article-cover_image-shrink_600_2000/0/1592196612253?e=1624492800&v=beta&t=6ROQJYdzPSoaTwT79HPT92hl_roYHjBJrQez1xSo3XE" />
-                </a>
-                <text>Terraform Deployment - Automation using Jenkins</text>
+                        src="{{ url_for('static',filename='img/terra-deploy.png') }}" />
+                    <text>Terraform Deployment - Automation using Jenkins</text>
+                </a>                
             </div>
         </div>
 
@@ -94,23 +144,24 @@
             <div class="links">
                 <a href="https://www.linkedin.com/pulse/elastic-kubernetes-service-joomla-mysql-vikas-verma/">
                     <img class="pimg"
-                        src="https://media-exp1.licdn.com/dms/image/C4D12AQF7MKjVPUx4og/article-cover_image-shrink_423_752/0/1594586601188?e=1624492800&v=beta&t=Sa6MbvV9Hm8k24aNIgB9FeFXK_qjrLUdVJXcYLTThso" />
+                        src="{{ url_for('static',filename='img/eks.jpg') }}" />
                     <text>Multi-tier Architecture on AWS EKS</text>
                 </a>
             </div>
             <div class="links">
                 <a
                     href="https://medium.com/swlh/hosting-wordpress-on-gcp-k8s-cluster-with-mysql-database-on-aws-using-terraform-f43492868d3d?source=friends_link&sk=33c037eaa4909c896bbd27f530a8508c">
-                    <img class="pimg" src="https://miro.medium.com/max/836/1*kp9VnejA4vUhrBsPzY1DNg.png" />
-                </a>
-                <text>Multi-tier Architecture on Multi Cloud</text>
+                    <img class="pimg" 
+                        src="{{ url_for('static',filename='img/multicloud.png') }}" />
+                    <text>Multi-tier Architecture on Multi Cloud</text>
+                </a>                
             </div>
             <div class="links">
                 <a
                     href="https://vikasverma250999.medium.com/creating-ansible-roles-to-configure-haproxy-load-balancer-on-aws-instances-ac59a05646c7">
-                    <img class="pimg" src="https://miro.medium.com/max/875/1*FhRijlCQ7LuDTXRnqZG8Ng.png" />
-                </a>
-                <text>Configure HAProxy Load Balancer on AWS using Ansible</text>
+                    <img class="pimg" src="{{ url_for('static',filename='img/haproxy.png') }}" />
+                    <text>Configure HAProxy Load Balancer on AWS using Ansible</text>
+                </a>                
             </div>
         </div>
 
@@ -118,23 +169,23 @@
             <div class="links">
                 <a
                     href="https://vikasverma250999.medium.com/configure-web-server-in-aws-ec2-instance-ansible-dynamic-inventory-394287356b00">
-                    <img class="pimg" src="https://miro.medium.com/max/769/1*F48hOzb3zwxl17zA6seoww.png" />
+                    <img class="pimg" src="{{ url_for('static',filename='img/dynamicInventory.png') }}" />
                     <text>Configure Web Server in AWS EC2 instance — Ansible dynamic inventory</text>
                 </a>
             </div>
             <div class="links">
                 <a
                     href="https://levelup.gitconnected.com/lvm-with-hadoop-63111412fda2?source=friends_link&sk=49d038663f802f1e49594995b79eb140">
-                    <img class="pimg" src="https://miro.medium.com/max/875/1*7GDT1E61CG7xtJWUZt4kFg.png" />
-                </a>
-                <text>LVM with Hadoop</text>
+                    <img class="pimg" src="{{ url_for('static',filename='img/lvm-hadoop.png') }}" />
+                    <text>LVM with Hadoop</text>
+                </a>                
             </div>
             <div class="links">
                 <a href="https://www.linkedin.com/pulse/deployment-automation-docker-jenkins-git-github-vikas-verma/">
                     <img class="pimg"
-                        src="https://media-exp1.licdn.com/dms/image/C5612AQE9wLwX5ztgGg/article-cover_image-shrink_423_752/0/1592676218246?e=1624492800&v=beta&t=Uid3BhHDy2b18xNw6EJrG9PlK6NLmdjcsgDZgoGPuTQ" />
-                </a>
-                <text>Deployment Automation with docker, Jenkins, Git and GitHub</text>
+                        src="{{ url_for('static',filename='img/deploy-auto.jpg') }}" />
+                    <text>Deployment Automation with docker, Jenkins, Git and GitHub</text>
+                </a>                
             </div>
         </div>
 
@@ -142,49 +193,27 @@
             <div class="links">
                 <a
                     href="https://vikasverma250999.medium.com/high-availability-architecture-with-cloudfront-aws-cli-752ac8728eea">
-                    <img class="pimg" src="https://miro.medium.com/max/875/1*aJoB1tkcF65SDbyRihLl6Q.png" />
+                    <img class="pimg" src="{{ url_for('static',filename='img/cloudfront.png') }}" />
                     <text>High Availability Architecture with CloudFront — AWS CLI</text>
                 </a>
             </div>
             <div class="links">
                 <a href="https://www.linkedin.com/pulse/damaged-road-detection-mask-r-cnn-supervisely-vikas-verma/">
                     <img class="pimg"
-                        src="https://media-exp1.licdn.com/dms/image/C4D12AQFCqZHj684eeA/article-cover_image-shrink_720_1280/0/1595149120057?e=1624492800&v=beta&t=yh4w5OfkDZoUYb3LYDTXrPMoWCqAAc4Qag3l-TD_UcE" />
-                </a>
-                <text>Damaged Road detection : Mask R-CNN on Supervisely</text>
+                        src="{{ url_for('static',filename='img/maskR-CNN.png') }}" />
+                    <text>Damaged Road detection : Mask R-CNN on Supervisely</text> 
+                </a>                
             </div>
-            <div class="links">
+            <div class="links" id="project-end">
                 <a href="https://github.com/VikasVerma25/flutter_task">
                     <img class="pimg"
-                        src="https://raw.githubusercontent.com/VikasVerma25/flutter_task/master/ss/flutterT1.jpg" />
-                </a>
-                <text>Flutter App to play audio and video using network and assets</text>
+                        src="{{ url_for('static',filename='img/flutter.jpg') }}" />
+                    <text>Flutter App to play audio and video using network and assets</text>    
+                </a>                
             </div>
         </div>
-
-        <!-- <div class="myprojects" style="margin-top: 5%;">
-                <div class="links">
-                    <a href="">
-                    <img class="pimg" src="" />
-                    <text>Hello hiii</text>
-                    </a>                    
-                </div>                
-                <div class="links">
-                    <a href="">
-                    <img class="pimg" src="" />
-                    </a>
-                    <text>Hello hiii</text>
-                </div>
-                <div class="links">
-                    <a href="">
-                    <img class="pimg" src="" />
-                    </a>
-                    <text>Hello hiii</text>
-                </div>
-            </div> -->
     </div>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="{{ url_for('static',filename='stickyheader.js') }}"></script>
 </body>
-
 </html>

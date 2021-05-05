@@ -1,9 +1,11 @@
+<!DOCTYPE html>
 <html>
 
 <head>
-    <title>My Portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Portfolio</title>
     <link rel="stylesheet" href="{{ url_for('static',filename='main.css') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static',filename='img/favicon-32x32.png') }}">
     <style>
         form {
             text-align: center;
@@ -22,11 +24,11 @@
             background-size: 0 2px, 100% 1px;
             background-position: 50% 100%, 50% 100%;
             box-shadow: 0 1px 4px 2px rgba(0, 0, 0, 0.2);
-            border-radius: 0.3vw;
+            border-radius: 5px;
             resize: inherit;
             transition: background-size 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
             font-family: Arial, Helvetica, sans-serif;
-            font-size: 1vw;
+            font-size: 15px;
         }
 
         input:focus,
@@ -35,10 +37,77 @@
             outline: none;
         }
 
+        div #comment-head {
+            margin-top: 3%;
+            color: rgb(5, 56, 107);
+            margin-bottom: 40px;
+            font-weight: bold ;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        #add {
+            width: 20%;
+        }
+
         #myIframe {
-            width: 50%;
+            width: 100%;
             margin-top: 5%;
             border: none;
+            margin-bottom: 5%;
+        }
+
+        div #comment-icon img{
+                height: 150px;
+                width: 140px;
+                margin-bottom: 40px;
+            }
+
+        @media (max-width: 850px) {
+            #add {
+                width: 35%;
+            }
+        }
+
+        @media (max-width: 800px) {
+            form {
+                width: 98%;
+            }
+
+            input,
+            textarea {
+                font-size: 10px;
+                padding: 8px 5px;
+            }
+
+            div #comment-head {
+                margin-top: 0px;
+                font-size: 15px;
+                background-color: rgb(76, 118, 161);
+                color: white;
+                height: 25px;
+                margin-bottom: 20px;
+                padding: 5px;
+            }
+
+            #myIframe {
+                width: 100%;
+            }
+            div #comment-icon {                
+                display: block;
+                margin: auto;                
+            }
+            div #comment-icon img{
+                height: 70px;
+                width: 60px;
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            #add {
+                width: 30%;
+            }
         }
     </style>
     <script>
@@ -76,34 +145,42 @@
             <a class="nav" id="Projects" href="Projects.html">Projects</a>
             <a class="nav" id="Comment" href="Comment.html">Comment</a>
 
-            <a class="icon" style="margin-left: 5vw;" href="https://www.linkedin.com/in/vikas-verma-4a02b51a2/"
+            <a class="icon" id="linkedIn-icon" href="https://www.linkedin.com/in/vikas-verma-4a02b51a2/"
                 target="_blank"><img src="{{ url_for('static',filename='img/linkedIn-icon.jpg') }}" /></a>
             <a class="icon" href="https://github.com/VikasVerma25" target="_blank"><img
                     src="{{ url_for('static',filename='img/github-icon.jpg') }}" /></a>
             <a class="icon" href="https://vikasverma250999.medium.com/" target="_blank"><img
                     src="{{ url_for('static',filename='img/medium-icon.png') }}" /></a>
             <a class="icon" href="https://github.com/VikasVerma25/myPortfolio" target="_blank"><img
-          src="https://x0n4d0.gallerycdn.vsassets.io/extensions/x0n4d0/vscode-snippets/1.0.7/1610239936666/Microsoft.VisualStudio.Services.Icons.Default" /></a>
+                    src="https://x0n4d0.gallerycdn.vsassets.io/extensions/x0n4d0/vscode-snippets/1.0.7/1610239936666/Microsoft.VisualStudio.Services.Icons.Default" /></a>
+        </div>
+        <div class="menu">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
         </div>
     </div>
 
-    <div class="content">
+    <div class="content" onclick="slideup()" onscroll="slideup()">
+        <div id="comment-head">Leave a Comment</div>
         <form action="mydb" method="post" id="commentform" target="hiddenFrame" onsubmit="currentTime()">
-            <h3 style="margin-top: 10%;">Leave a Comment</h3>
+            
+            <div id="comment-icon"><img  src="{{ url_for('static',filename='img/comment.png') }}" /></div>
             <input placeholder="Name" name="name" type="text" required>
             <textarea placeholder="Comment" name="comment" required></textarea>
             <input type="hidden" name="time" id="comment_post_ID" />
-            <input style="width: 20%; font-size: 1vw;" name="submit" type="submit" value="Submit comment" />
+            <input id='add' name="submit" type="submit" value="Add comment" />
         </form>
         <center><iframe name="hiddenFrame" id="myIframe" src="getdata"></iframe></center>
     </div>
     <script>
-        var iframe = document.getElementById("myIframe");
+        var myiframe = document.getElementById("myIframe");
         // Adjusting the iframe height onload event
-        iframe.onload = function () {
-            iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+        myiframe.onload = function () {
+            myiframe.style.height = myiframe.contentWindow.document.body.scrollHeight + 50 + 'px';
         }
     </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="{{ url_for('static',filename='stickyheader.js') }}"></script>
 </body>
 

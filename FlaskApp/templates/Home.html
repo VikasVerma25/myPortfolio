@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>My Portfolio</title>
   <link rel="stylesheet" href="{{ url_for('static',filename='main.css') }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static',filename='img/favicon-32x32.png') }}">
   <style>
     #me {
       height: 100%;
@@ -13,51 +14,51 @@
 
     #div-me {
       position: fixed;
-      margin-left: 60vw;
-      margin-top: 6vw;
+      margin-left: 60%;
+      margin-top: 16%;
       width: 15vw;
       height: 15vw;
-      border: 2px solid rgb(7, 80, 153);
       border-radius: 50%;
       overflow: hidden;
     }
 
-    iframe {
+    /* iframe {
       position: fixed;
-      margin-left: 58vw;
-      margin-top: 32vw;
-      width: 20vw;
-      height: 10vw;
+      margin-left: 58%;
+      margin-top: 500px;
+      width: 300px;
+      height: 150px;
       border: none;
-      border-radius: 1em;
+      border-radius: 5px;
       box-shadow: 0 1px 4px 2px rgba(0, 0, 0, 0.2);
     }
+
     iframe:hover {
-      margin-left: 55.5vw;
-      margin-top: 29.5vw;
-      width: 25vw;
-      height: 15vw;
-    }
+      margin-left: 56%;
+      margin-top: 465px;
+      width: 370px;
+      height: 220px;
+    } */
 
     #intro {
-      margin-top: 7vw;
-      width: 50%;
-      font-size: 1.5vw;
-      border-radius: 2em;
+      margin-top: 5.5vw;
+      width: 700px;
+      font-size: 25px;
+      border-radius: 5px;
       background-color: cornsilk;
       padding: 0px 2vw 2vw 2vw;
       overflow: hidden;
     }
 
     #incontent {
-      text-align: left;
+      text-align: center;
       font-family: 'Courier New', Courier, monospace;
       margin-top: 1vw;
       display: none;
     }
 
     .play {
-      border-top-left-radius: 2em;
+      border-top-left-radius: 5px;
       display: inline-block;
       padding: 0.5vw;
       font-size: 0.8vw;
@@ -86,62 +87,110 @@
       border-radius: 50%;
     }
 
+    #g {
+      color: rgb(33, 82, 218)
+    }
+
+    #o1,
+    #e {
+      color: red
+    }
+
+    #o2 {
+      color: yellow
+    }
+
+    #l {
+      color: green
+    }
+
+    #M {
+      color: rgba(146, 143, 143, 0.637)
+    }
+
     .play1-img:hover {
       cursor: pointer;
       box-shadow: 0px 4px 4px 0 rgba(0, 0, 0, 0.2);
     }
 
-    #myportfolio {
-      display: inline-block;
-      font-size: 5vw;
-      margin-top: 3.5vw;
-      margin-left: 10vw;
-      color: rgb(65, 105, 145);
-    }
-    
-    #flip {
-      text-align: center;
-      margin-top: 2vw;
-      width: 50%;
-      font-size: 1.5vw;
-      font-weight: bold ;
-      color: white;
-      border-top-left-radius: 1em;
-      border-top-right-radius: 1em;
-      background-color: rgb(63, 134, 204);
-      padding-top: 1vw ; 
-      font-family: Arial, Helvetica, sans-serif;     
+    @media screen and (min-width: 800px) {
+      .circle {
+        border-radius: 50%;
+        background-color: rgb(63, 134, 204);
+        position: fixed;
+        margin-left: 60.13%;
+        margin-top: 16%;
+        width: 15vw;
+        height: 15vw; 
+        opacity: 0;
+        animation: scaleIn 3s infinite cubic-bezier(.36, .11, .89, .32);
+      }
+
+      @keyframes scaleIn {
+        from {
+          transform: scale(1.1, 1.1);
+          opacity: .5;
+        }
+
+        to {
+          transform: scale(1.5, 1.5);
+          opacity: 0;
+        }
+      }
+      #div-me {
+        z-index: 9;
+      }
     }
 
-    #flip:hover, #down:hover {
-      cursor: pointer;
+    @media screen and (min-width: 800px) {
+      .content {
+        margin-left: 10vw;
+      }
     }
 
-    #panel {
-      display: none;
-      font-size: 1.5vw;
-      width: 50%;
-      background-color: cornsilk;
-      padding: 1vw 2vw 1vw 2vw;
-      font-family: 'Courier New', Courier, monospace;
-    }
-    #down {
-      border-bottom-left-radius: 1em;
-      border-bottom-right-radius: 1em;
-      margin-bottom: 5%;
-      background-color: rgb(63, 134, 204);
-      width: 50%;
-      height: 1.7vw;
-    }
-    table {
-      text-align: center;
-      margin-left: auto;
-      margin-right: auto;
-      border: 2px solid rgb(63, 134, 204);
-      border-collapse: collapse;
-    }
-    td {
-      border:  2px solid rgb(63, 134, 204);
+    @media screen and (max-width: 800px) {
+      #intro {
+        margin-top: 40px;
+        width: 100%;
+        font-size: 15px;
+        border-radius: 5px;
+        padding: 0px 5px 5px 5px;
+      }
+
+      #incontent {
+        margin-top: 15px;
+      }
+
+      .play {
+        padding: 5px;
+        font-size: 10px;
+        font-weight: bold;
+        margin-top: 10px;
+      }
+
+      .play1 {
+        margin-left: -125px;
+        margin-top: 2px;
+        position: relative;
+        width: 120px;
+        height: 30px;
+      }
+
+      .play1-img {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+        margin-left: 5px;
+      }
+
+      #div-me {
+        position: absolute;
+        margin-top: 40px;
+        right: 0;
+        width: 130px;
+        height: 130px;
+        border: 3px solid white;
+      }
     }
   </style>
 
@@ -149,7 +198,10 @@
   <script>
     $(document).ready(function () {
       $("#stop").click(function () {
-        $(".play1").animate({ left: "-9vw" });
+        if (screen.width > 800)
+          $(".play1").animate({ left: "-9vw" });
+        else
+          $(".play1").animate({ left: "-90px" });
       });
     });
     function fadeinLoad() {
@@ -160,11 +212,16 @@
     $(document).ready(function () {
       $("#flip").click(function () {
         $("#panel").slideToggle("slow");
+        setTimeout(scrolldown, 200);
       });
       $("#down").click(function () {
         $("#panel").slideToggle("slow");
+        setTimeout(scrolldown, 200);
       });
     });
+    function scrolldown() {
+      $(".content").animate({ scrollTop: $(".content")[0].scrollHeight }, 1000);
+    }
   </script>
 </head>
 
@@ -175,22 +232,29 @@
       <a class="nav" id="Certificates" href="Certificates.html">Certificates</a>
       <a class="nav" id="Projects" href="Projects.html">Projects</a>
       <a class="nav" id="Comment" href="Comment.html">Comment</a>
-
-      <a class="icon" style="margin-left: 5vw;" href="https://www.linkedin.com/in/vikas-verma-4a02b51a2/"
-        target="_blank"><img src="{{ url_for('static',filename='img/linkedIn-icon.jpg') }}" /></a>
+      
+      <a  class="icon" id="linkedIn-icon" href="https://www.linkedin.com/in/vikas-verma-4a02b51a2/" target="_blank"><img
+          src="{{ url_for('static',filename='img/linkedIn-icon.jpg') }}" /></a>
       <a class="icon" href="https://github.com/VikasVerma25" target="_blank"><img
           src="{{ url_for('static',filename='img/github-icon.jpg') }}" /></a>
       <a class="icon" href="https://vikasverma250999.medium.com/" target="_blank"><img
           src="{{ url_for('static',filename='img/medium-icon.png') }}" /></a>
       <a class="icon" href="https://github.com/VikasVerma25/myPortfolio" target="_blank"><img
-          src="https://x0n4d0.gallerycdn.vsassets.io/extensions/x0n4d0/vscode-snippets/1.0.7/1610239936666/Microsoft.VisualStudio.Services.Icons.Default" /></a>  
+          src="https://x0n4d0.gallerycdn.vsassets.io/extensions/x0n4d0/vscode-snippets/1.0.7/1610239936666/Microsoft.VisualStudio.Services.Icons.Default" /></a>
+       
+    </div>
+    <div class="menu">
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
     </div>
   </div>
 
-  <div class="content" style="padding-left:10%">
+  <div class="content" onclick="slideup()" onscroll="slideup()">
     <div id="div-me"><img id="me" src="{{ url_for('static',filename='img/me.jpg') }}" /></div>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1835.620888524405!2d72.65055665805525!3d23.051595996234557!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e86dcd925df4b%3A0x3f9422a82d26007!2sE-434%2C%20Krishnanagar%2C%20Nava%20Naroda%2C%20Ahmedabad%2C%20Gujarat%20382345!5e0!3m2!1sen!2sin!4v1619239714318!5m2!1sen!2sin"  allowfullscreen="" loading="lazy"></iframe>
-    <div id="myportfolio">My Portfolio</div>
+    <div class="circle" style="animation-delay: 1s"></div>
+    <div class="circle" style="animation-delay: 0s"></div>
+    <div id="myportfolio"><img src="{{ url_for('static',filename='img/portfolio-img.png') }}" />My Portfolio</div>
     <div id="intro">
       <text class="play">May I read it for you? </text><br>
       <div class="play1">
@@ -215,7 +279,10 @@
           aud.load();
         }
         $(".play").click(function () {
-          $(".play1").animate({ left: "10vw" });
+          if (screen.width > 800)
+            $(".play1").animate({ left: "10vw" });
+          else
+            $(".play1").animate({ left: "125px" });
           playAudio();
         });
       </script>
@@ -228,35 +295,50 @@
     </div>
     <div id="flip">Personal Information & Education</div>
     <div id="panel">
-      <table cellpadding="10" border="1">
-      <tr>
-        <td>Name</td><td>Vikas Verma</td>
-      </tr>
-      <tr>
-        <td>Email Id</td><td>vikasverma250999@gmail.com</td>
-      </tr>
-      <tr>
-        <td>Phone</td><td>+91 7984326303</td>
-      </tr>
-      <tr>
-        <td>DOB</td><td>25 Sep 1999</td>
-      </tr>
-      <tr>
-	      <td>Class 10th (2014-15)</td><td>Kendriya Vidyalaya<br>(9.4 CGPA)</td>
-      </tr>
-      <tr>
-	      <td>12th CBSE Board (2016-17)</td><td>Kendriya Vidyalaya<br>Computer Science (90.2 %)</td>
-      </tr>
-      <tr>
-        <td>BE computers (2018-22)</td><td>Gujarat Technological University (GTU)</td>
-      </tr>
+      <table id="info-table" cellpadding="10" border="1">
+        <tr>
+          <td>Name</td>
+          <td>Vikas Verma</td>
+        </tr>
+        <tr>
+          <td>Email Id</td>
+          <td>vikasverma250999@gmail.com<a id="email" href="mailto:vikasverma250999@gmail.com"><img
+                src="{{ url_for('static',filename='img/email-icon.png') }}" /></a></td>
+        </tr>
+        <tr>
+          <td>Phone</td>
+          <td>+91 7984326303</td>
+        </tr>
+        <tr>
+          <td>DOB</td>
+          <td>25 Sep 1999</td>
+        </tr>
+        <tr>
+          <td>Class 10th (2014-15)</td>
+          <td>Kendriya Vidyalaya<br>(9.4 CGPA)</td>
+        </tr>
+        <tr>
+          <td>12th CBSE Board (2016-17)</td>
+          <td>Kendriya Vidyalaya<br>Computer Science (90.2 %)</td>
+        </tr>
+        <tr>
+          <td>BE Computers (2018-22)</td>
+          <td>Gujarat Technological University (GTU)</td>
+        </tr>
+        <tr>
+          <td>Address</td>
+          <td><a style="text-decoration: none;"
+              href="https://www.google.com/maps/place/E-434,+Krishnanagar,+Nava+Naroda,+Ahmedabad,+Gujarat+382345/@23.051596,72.6494623,17z/data=!3m1!4b1!4m5!3m4!1s0x395e86dcd925df4b:0x3f9422a82d26007!8m2!3d23.051596!4d72.651651?hl=en">
+              See at <text id='g'>G</text><text id='o1'>o</text><text id='o2'>o</text><text id='g'>g</text><text
+                id='l'>l</text><text id='e'>e</text>
+              <text id='M'>Maps</text></a></td>
+        </tr>
       </table>
     </div>
     <div id="down"></div>
+
   </div>
-
   <script src="{{ url_for('static',filename='stickyheader.js') }}"></script>
-
 </body>
 
 </html>
