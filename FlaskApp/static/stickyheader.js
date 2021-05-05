@@ -1,16 +1,15 @@
 var path = window.location.pathname;
-var page = path.split("/").pop().slice(0,-5);
-document.getElementById(page).style.borderBottom = "0.2vw solid rgb(7, 80, 153)";
+var page = path.split("/").pop().slice(0, -5);
+document.getElementById(page).style.color = "rgb(5, 56, 107)";
 
-window.onscroll = function() {myFunction()};
-    
-    var header = document.getElementById("myHeader");
-    var sticky = header.offsetTop;
-    
-    function myFunction() {
-      if (window.pageYOffset > sticky) {
-        header.classList.add("sticky");
-      } else {
-        header.classList.remove("sticky");
-      }
+$(document).ready(function () {
+    $(".menu").click(function () {
+        this.classList.toggle("change");
+        $(".header-main").slideToggle("slow");
+    });
+});
+
+function slideup() {
+    if (screen.width < 800)
+        $(".header-main").slideUp();
 }
